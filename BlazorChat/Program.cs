@@ -8,7 +8,7 @@ builder.AddServiceDefaults();
 
 builder.Services.AddHttpClient();
 
-builder.AddOllamaSharpChatClient("phi3");
+builder.AddOllamaSharpChatClient("phi35");
 
 builder.Services.AddSingleton<IMarkdownService ,MarkdownService>();
 

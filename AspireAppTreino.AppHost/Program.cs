@@ -15,10 +15,10 @@ var ollama = builder.AddOllama("ollama")
     .WithLifetime(ContainerLifetime.Persistent)
     .WithOtlpExporter();
 
-var phi3 = ollama.AddModel("phi3", "phi3");
+var phi35 = ollama.AddModel("phi35", "phi3.5");
 
 builder.AddProject<Projects.BlazorChat>("blazorchat")
-    .WithReference(phi3)
-    .WaitFor(phi3);
+    .WithReference(phi35)
+    .WaitFor(phi35);
 
 builder.Build().Run();
