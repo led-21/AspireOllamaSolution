@@ -1,0 +1,31 @@
+﻿@page "/"
+
+@rendermode InteractiveServer
+
+@using BlazorChat.Interface
+
+@inject HttpClient Client
+@inject IOllamaApiClient Chat
+@inject IMarkdownService MarkdownService
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+<p>Welcome to your new app.</p>
+<a href="/data">Ir para dados</a>
+<br />
+<img src="@imageUrl" style="width:500px" />
+
+<br />
+<input type="text" @bind-value="imageUrl" />
+<button @onclick="InsectIdentify">Identificar</button>
+<br />
+
+<input type="text" style="width: 600px" @bind-value="context" />
+<button @onclick="AddSystemContext">Add Context</button>
+<button @onclick="CleanContext">Clean Context</button>
+
+<p>@((MarkupString)MarkdownService.ConvertMarkdownToHtml(classificationResult))</p>
+
+<p>@((MarkupString)MarkdownService.ConvertMarkdownToHtml(chatResult))</p>
+
